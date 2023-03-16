@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../../src/constants/app_text_style.dart';
+import '../../constants/app_text_style.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.text,
-    required this.onPressed,
-    required this.backgroundColor,
+    this.onPressed,
+    this.backgroundColor,
   });
   final String text;
   final void Function()? onPressed;
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {

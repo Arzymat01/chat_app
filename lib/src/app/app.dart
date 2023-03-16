@@ -4,16 +4,15 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import '../routes/app_pages.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-  });
+  const MyApp(this.isAuth, {super.key});
+  final bool isAuth;
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application",
-      initialRoute: AppPages.INITIAL,
+      initialRoute: isAuth ? AppPages.HOME : AppPages.FLASH_CHAT,
       getPages: AppPages.routes,
     );
   }

@@ -12,6 +12,19 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text('HomeView'),
         centerTitle: true,
+        actions: [
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(
+                      onTap: () {},
+                      child: Text('Aккаунттан Чыгуу'),
+                    ),
+                    PopupMenuItem(
+                      onTap: () {},
+                      child: Text('Aккаунтты очуруу'),
+                    ),
+                  ])
+        ],
       ),
       body: const Center(
         child: Text(

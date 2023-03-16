@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../components/buttons/customButton.dart';
-import '../../../../components/logo/animationLogo.dart';
+import '../../../components/buttons/customButton.dart';
+import '../../../components/logo/animationLogo.dart';
 import '../controllers/flash_chat_controller.dart';
 
 class FlashChatView extends GetView<FlashChatController> {

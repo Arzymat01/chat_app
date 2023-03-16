@@ -1,11 +1,11 @@
-import 'package:chat_app/components/buttons/customButton.dart';
-import 'package:chat_app/components/logo/animationLogo.dart';
+import 'package:chat_app/src/components/buttons/customButton.dart';
+import 'package:chat_app/src/components/logo/animationLogo.dart';
 import 'package:chat_app/src/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../../../components/text_form_field/textForm_field.dart';
+import '../../../components/text_form_field/textForm_field.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -33,16 +33,16 @@ class LoginView extends GetView<LoginController> {
                   ),
                   const SizedBox(height: 12),
                   CustomTextField(
-                    controller: controller.emailCtl,
+                    controller: controller.passwordCtl,
                     hintext: 'Enter your password',
                     labaetext: 'Password',
                   ),
                 ],
               ),
               CustomButton(
-                  text: isLogin ? 'Login' : 'Register',
-                  onPressed: () {},
-                  backgroundColor: Appcolors.loginBtn),
+                onPressed: () async => await controller.loginRegister(isLogin),
+                text: isLogin ? 'Login' : 'Register',
+              ),
             ],
           ),
         ),

@@ -16,11 +16,15 @@ class HomeView extends GetView<HomeController> {
           PopupMenuButton(
               itemBuilder: (context) => [
                     PopupMenuItem(
-                      onTap: () {},
+                      onTap: () async {
+                        await controller.logout();
+                      },
                       child: Text('Aккаунттан Чыгуу'),
                     ),
                     PopupMenuItem(
-                      onTap: () {},
+                      onTap: () async {
+                        await controller.delete();
+                      },
                       child: Text('Aккаунтты очуруу'),
                     ),
                   ])

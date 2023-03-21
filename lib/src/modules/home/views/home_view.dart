@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../components/message/sendMessage.dart';
+import '../../../components/message/streamMessage.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -10,7 +12,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeView'),
+        title: const Text('⚡️Chat'),
         centerTitle: true,
         actions: [
           PopupMenuButton(
@@ -19,22 +21,25 @@ class HomeView extends GetView<HomeController> {
                       onTap: () async {
                         await controller.logout();
                       },
-                      child: Text('Aккаунттан Чыгуу'),
+                      child: const Text('Aккаунттан Чыгуу'),
                     ),
                     PopupMenuItem(
                       onTap: () async {
                         await controller.delete();
                       },
-                      child: Text('Aккаунтты очуруу'),
+                      child: const Text('Aккаунтты очуруу'),
                     ),
                   ])
         ],
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: Column(
+        children: [
+          StringMessage(controller.streamMessege()),
+          SendMessage(
+            controller.textcontroller,
+            onPressed: () async => controller.sendMessage(),
+          ),
+        ],
       ),
     );
   }
